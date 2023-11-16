@@ -103,6 +103,17 @@ body {
     font-weight: 400;
 }
 
+.fade-in {
+    opacity: 0;
+    transform: translateY(80px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in.active{
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .photo, .photo2 {
     margin-top: 70px;
 }
