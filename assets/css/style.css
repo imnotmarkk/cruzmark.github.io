@@ -258,7 +258,7 @@ h3 {
 }
 
 footer {
-    height: auto;
+    min-height: 130px;
     padding: 40px 0;
     background-color: #0e0e10;
 }
