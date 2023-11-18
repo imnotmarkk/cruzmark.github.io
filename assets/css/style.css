@@ -175,8 +175,15 @@ h3 {
     z-index: 100;
 }
 
-.navbar li a {
+.navbar li a,
+.nav-link,
+.nav-link:hover,
+.nav-link.active {
     font-size: 23px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #ffffff;
+    margin-left: 15px;
+    position: relative;
 }
 
 .navbar-brand {
@@ -184,18 +191,8 @@ h3 {
     font-size: 28px;
 }
 
-.navbar-nav {
-    margin-right: 50px;
-}
-
-.nav-link {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #ffffff;
-    margin-left: 15px;
-    position: relative;
-}
-
-.nav-link::before {
+.nav-link::before,
+.nav-link.active::before {
     content: "";
     position: absolute;
     bottom: 0;
@@ -206,12 +203,21 @@ h3 {
     transition: background-color 0.5s;
 }
 
-.nav-link:hover::before {
+.nav-link:hover::before,
+.nav-link.active::before {
     background-color: #b40000;
 }
 
 .navbar-toggler-icon {
     border-radius: 10px;
+}
+
+.navbar-nav {
+    margin-right: 50px;
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: #b40000;
 }
 
 .navbar-nav .nav-item:hover .nav-link,
