@@ -16,6 +16,30 @@ document.addEventListener("DOMContentLoaded", function () {
     checkScroll();
 });
 
+$(document).ready(function () {
+  // Function to update the active section in the navbar
+  function updateActiveSection() {
+    const sections = $('section');
+    const scrollPosition = $(window).scrollTop();
+
+    sections.each(function () {
+      const top = $(this).offset().top - 50;
+      const bottom = top + $(this).outerHeight();
+
+      if (scrollPosition >= top && scrollPosition < bottom) {
+        const sectionId = $(this).attr('id');
+        $('.nav-link').removeClass('active');
+        $(`.nav-link[href="#${sectionId}"]`).addClass('active');
+      }
+    });
+  }
+
+  // Highlight the current section in the navbar on page load and when scrolling
+  $(window).on('scroll', function () {
+    updateActiveSection();
+  });
+});
+
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
 
