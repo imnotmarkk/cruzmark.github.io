@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 $(document).ready(function () {
-  // Function to update the active section in the navbar
   function updateActiveSection() {
     const sections = $('section');
     const scrollPosition = $(window).scrollTop();
@@ -34,7 +33,6 @@ $(document).ready(function () {
     });
   }
 
-  // Highlight the current section in the navbar on page load and when scrolling
   $(window).on('scroll', function () {
     updateActiveSection();
   });
