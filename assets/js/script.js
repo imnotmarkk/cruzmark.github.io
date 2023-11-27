@@ -1,27 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll('.fade-in');
-  
-    function checkScroll() {
-      sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        const isVisible = (rect.top >= 0 && rect.top <= window.innerHeight - 100);
-        
-        if (isVisible) {
-          section.classList.add('active');
-        }
-      });
-    }
-  
-    document.addEventListener('scroll', checkScroll);
-    checkScroll();
-});
+  const sections = document.querySelectorAll('.fade-in');
+  const form = document.querySelector("form");
 
-$(document).ready(function () {
+  function checkScroll() {
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const isVisible = (rect.top >= 0 && rect.top <= window.innerHeight - 100);
+
+      if (isVisible) {
+        section.classList.add('active');
+      }
+    });
+  }
+
   function updateActiveSection() {
-    const sections = $('section');
     const scrollPosition = $(window).scrollTop();
 
-    sections.each(function () {
+    $('section').each(function () {
       const top = $(this).offset().top - 50;
       const bottom = top + $(this).outerHeight();
 
@@ -33,27 +28,33 @@ $(document).ready(function () {
     });
   }
 
-  $(window).on('scroll', function () {
-    updateActiveSection();
-  });
-});
+  function submitForm(e) {
+    e.preventDefault();
 
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form");
+    const name = document.querySelector('input[name="Name"]').value;
+    const email = document.querySelector('input[name="Email"]').value;
+    const message = document.querySelector('textarea[name="Message"]').value;
 
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const name = document.querySelector('input[name="Name"]').value;
-      const email = document.querySelector('input[name="Email"]').value;
-      const message = document.querySelector('textarea[name="Message"]').value;
-
-      const confirmationMessage = `Message sent:
+    const confirmationMessage = `Message sent:
       Name: ${name}
       Email: ${email}
       Message: ${message}`;
-      alert(confirmationMessage);
+    alert(confirmationMessage);
 
-      form.reset();
-    });
+    form.reset();
+  }
+
+  $(window).on('scroll', function () {
+    updateActiveSection();
+  });
+
+  form.addEventListener("submit", submitForm);
+  document.addEventListener('scroll', checkScroll);
+
+  $('.nav-link').on('click', function () {
+    $('.navbar-collapse').collapse('hide');
+  });
+
+  checkScroll();
+  updateActiveSection();
 });
