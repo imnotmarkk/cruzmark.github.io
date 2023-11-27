@@ -58,6 +58,23 @@ body {
     .row-cols-md-3 .col {
         flex: 0 0 100%;
     }
+
+    .navbar-nav {
+        min-height: 100vh;
+        margin-right: 0;
+    }
+
+    .navbar-toggler-icon {
+        margin-right: 0;
+    }
+
+    .navbar-toggler {
+        margin-right: 0;
+    }
+
+    footer {
+        text-align: center;
+    }
 }
 
 .title {
@@ -267,24 +284,4 @@ footer {
     min-height: 5vh;
     padding: 40px 0;
     background-color: #0e0e10;
-}
-
-@media (max-width: 768px) {
-    .navbar-nav {
-        margin-right: 0;
-    }
-
-    .navbar-toggler-icon {
-        margin-right: 0;
-    }
-
-    .navbar-toggler {
-        margin-right: 0;
-    }
-}
-
-@media (max-width: 768px) {
-    footer {
-        text-align: center;
-    }
 }
