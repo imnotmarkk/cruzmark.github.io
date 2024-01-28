@@ -7,9 +7,6 @@
 
 body {
     background-color: #222222;
-    font-family: var(--body-font);
-    font-size: var(--normal-font-size);
-    letter-spacing: var(--normal-letter-space);
 }
 
 #Home {
